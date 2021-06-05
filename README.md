@@ -1,5 +1,5 @@
-# Neofetch ASCII
-custom ascii art files i made for use in neofetch
+# Neofetch Merlin Config
+My custom configuration file for neofetch using ascii art made by [Adithyan-KV](https://github.com/Adithyan-KV)
 
 ## Preview
 ![ASCII-wizard-preview](/images/merlin.png)
