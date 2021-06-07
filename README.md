@@ -1,21 +1,37 @@
 # Neofetch Merlin Config
-My custom configuration file for neofetch using ascii art made by [Adithyan-KV](https://github.com/Adithyan-KV)
+My custom configuration file for neofetch using ascii art made by [Adithyan-KV](https://github.com/Adithyan-KV).
 
 ## Preview
-![ASCII-wizard-preview](/images/merlin.png)
-![ASCII-skull-preview](/images/skull.png)
+![ASCII-wizard-preview](/Preview/Merlin_on_Tilix.png)
+
+## Additions to Neofetch Config
+
+- Lutris Games
+- Sound Server
+- Alternate method to display terminal font on Tilix 
+- ProtonVpn Server
+
+## Additional software required to use my configuration
+
+- [protonvpn-cli](https://protonvpn.com/support/linux-ubuntu-vpn-setup)
+- [Lutris](https://github.com/lutris/lutris)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ## How to use
+
+In Ubuntu can can install these packages with the following commands:
+
+```
+wget https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb
+sudo dpkg -i protonvpn-stable-release_1.0.1-1_all.deb
+sudo apt-get update
+sudo apt-get install protonvpn lutris ripgrep
+```
+
 Clone the repo or download its contents
 
-`
-git clone https://github.com/Adithyan-KV/neofetch_ascii.git
-`
+`git clone https://github.com/BelArvardan/Neofetch_Merlin_Config /home/$USER/.config/neofetch`
 
-To use the custom ASCII image in neofetch use the command
+run neofetch
 
-`
-neofetch --source path/to/ascii/file
-`
-
-If you don't wanna go through the hassle of type in the long command every time you want to display the art in neofetch, you can make it display the ASCII art by default. The proper way to do it i guess would be to edit the config files for neofetch itself. But i personally prefer tweaking stuff in my .bashrc file for all my customizations. So I would rather create an alias for `neofetch` as `neofetch --source path/to/ascii/file` in my .bashrc (or the rc file for whatever shell you are using)
+`neofetch`
