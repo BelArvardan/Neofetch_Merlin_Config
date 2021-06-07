@@ -4,12 +4,20 @@ My custom configuration file for neofetch using ascii art made by [Adithyan-KV](
 ## Preview
 ![ASCII-wizard-preview](/Preview/Merlin_on_Tilix.png)
 
-## Additions to Neofetch Config
+## Additions to Neofetch Config usinng the [prin](https://github.com/dylanaraps/neofetch/wiki/Customizing-Info#prin) option
 
-- Lutris Games
-- Sound Server
-- Alternate method to display terminal font on Tilix 
-- ProtonVpn Server
+### Lutris Games
+- Uses the 
+
+### Sound Server
+-
+
+### Alternate method to display terminal font on Tilix 
+-
+
+### ProtonVpn Server
+-
+
 
 ## Additional software required to use my configuration
 
