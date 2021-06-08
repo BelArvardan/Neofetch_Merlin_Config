@@ -1,32 +1,56 @@
 # Neofetch Merlin Config
-My custom configuration file for neofetch using ascii art made by [Adithyan-KV](https://github.com/Adithyan-KV).
+
+My custom configuration file for neofetch using ascii art made by [Adithyan-KV](https://github.com/Adithyan-KV). My Terminal Emulator of choice is [Tilix](https://github.com/gnunn1/tilix) and therefore some of my customizations are tilix specific.
+
+## Contents
+
+- [Preview](#preview)
+- [Additions to Neofetch Config](#additions-to-neofetch-config)
+- [Additional Software Required](#additional-software-required)
+- [How to use](#how-to-use)
+- [Sources](#sources)
+- [Thoughts](#thoughts)
 
 ## Preview
+### Merlin Acsii Preview
 ![ASCII-wizard-preview](/Preview/Merlin_on_Tilix.png)
+### PipBoy Acsii Preview
+![ASCII-pipboy-preview](/Preview/Pipboy_on_Tilix.png)
 
-## Additions to Neofetch Config usinng the [prin](https://github.com/dylanaraps/neofetch/wiki/Customizing-Info#prin) option
+## Additions to Neofetch Config
+- This is done usinng the [prin](https://github.com/dylanaraps/neofetch/wiki/Customizing-Info#prin) option
 
 ### Lutris Games
-- Uses the 
+`prin " Lutris Games" "$(ls /home/$USER/.local/share/lutris/banners | wc -l)"`
+- Uses the `ls` and `wc` commands to show how many games I have installed on [Lutris](https://github.com/lutris/lutris)
 
 ### Sound Server
--
+`prin "墳Sound Server" "$(pactl info | rg 'Server Name' | cut -c13-)"`
+- I have started using Pipewire as a sound Server and since its still new and part incorporated into my distro by default it is important to make sure the system is still using it.
+- I use `pactl info` with `grep` or `rg`(ripgrep) to make sure pipewire is working properly.
 
-### Alternate method to display terminal font on Tilix 
--
+### Alternate method to display terminal font on Tilix
+`prin " Terminal Font" "$(dconf dump /com/gexperts/Tilix/profiles/[Profile String]/ | rg "font" --max-count=1 | cut -c6-)"`
+- For whatever reason the `term_font` function doesn't work on tilix. I'm not sure why.
+- See the [Neofetch Wiki](https://github.com/dylanaraps/neofetch/wiki/Terminal-and-Terminal-Font-detection) for more info about this.
+- As a result I am using `dconf dump` with `grep` or `rg`(ripgrep) to find this infomation.
+- this requires you to find the string assosiated with your Tilix profile using the command 
+`dconf dump /com/gexperts/Tilix/profiles`
+
+![Find-tilix-profile-string](/Preview/Tilix_Profile_String.png)
+
+- This implementation is problematic and may not alsways work. However it has worked for me so far.
 
 ### ProtonVpn Server
--
+`prin "旅 ProtonVPN Server" "$(protonvpn-cli s | rg "Server" --max-count=1 | cut -c11-)"`
+- This simply displays which ProtonVPN Server I am connected to too.
 
-
-## Additional software required to use my configuration
+## Additional Software Required
 
 - [protonvpn-cli](https://protonvpn.com/support/linux-ubuntu-vpn-setup)
 - [Lutris](https://github.com/lutris/lutris)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
-
-## How to use
 
 ### Installing Additional software/dependancies.
 In Ubuntu can can install these packages with the following commands:
@@ -63,6 +87,8 @@ cd nerd-fonts
 ./install.sh ProggyClean
 ```
 
+## How to use
+
 ### Clone the repo or download its contents
 `git clone https://github.com/BelArvardan/Neofetch_Merlin_Config /home/$USER/.config/neofetch`
 
@@ -80,17 +106,34 @@ cd nerd-fonts
 ###### Example:
 `neofetch --source /home/$USER/.config/neofetch/ascii/skull.txt`
 
-### Use W3M on Terminal Emulators that support inline images
+![ASCII-skull-preview](/Preview/Skull_on_Tilix.png)
+
+### For Terminal Emulators that support inline images
 `neofetch --config /home/$USER/.config/neofetch/config-w3m.conf`
 or
-`neofetch --backend w3m --source /home/$USER/.config/neofetch/images/space-wizard-car.jpeg`
+`neofetch --w3m source --source /home/$USER/.config/neofetch/images/space-wizard-car.jpeg`
 
-## Conclusions
+### Example using [Kitty](https://github.com/kovidgoyal/kitty)
+`neofetch --kitty source /home/$USER/.config/neofetch/images/space-wizard-car.jpeg`
+
+![Image-wizard-preview](/Preview/Space_Wizard_on_Kitty.png)
+
+## Sources
+
+### Acsii
+- [merlin.txt](https://github.com/Adithyan-KV/neofetch_ascii/blob/master/merlin.txt) designed by [Adithyan-KV](https://github.com/Adithyan-KV).
+- [pipboy.txt](https://www.reddit.com/r/Fallout/comments/2b1feu/pipboy_ascii_art/) found on [r/Fallout](https://www.reddit.com/r/Fallout).
+- [skull.txt](https://github.com/Adithyan-KV/neofetch_ascii/blob/master/skull.txt)  designed by [Adithyan-KV](https://github.com/Adithyan-KV).
+- [vampire.txt](https://www.asciiart.eu/mythology/monsters) found on [asciiart.eu](https://www.asciiart.eu)
+- [viking.txt](https://asciiart.website/index.php?art=people/vikings) found on [asciiart.website](https://asciiart.website)
+### Images
+- [space-wizard-car.jpeg](https://www.reddit.com/r/SS13/comments/3szzdx/the_average_wizard_round) found on [r/SS13](https://www.reddit.com/r/SS13/)
+### Other Tools
+- [Goph](https://mayccoll.github.io/Gogh/) An easy way to install many terminal color themes.
+
+## Thoughts
 - Neofetch is a fun and useful tool which is widely used and highly customizable.
 - Hopefully my config example will inspire others to create new useful customizations.
 - My additions are very simple and slightly hacky, so I'm sure others can easily create new and amazing additions. 
-
-## Note
 - This is the 1st project I have posted in several years.
 - Any comments or suggestions are welcome.
-- Enjoy
