@@ -15,7 +15,7 @@ My custom configuration file for neofetch using ascii art made by [Adithyan-KV](
 ### Merlin Acsii Preview
 ![ASCII-wizard-preview](/Preview/Merlin_on_Tilix.png)
 ### PipBoy Acsii Preview
-![ASCII-pipboy-preview](/Preview/Pipboy_on_Tilix.png)
+![ASCII-pipboy-preview](/Preview/PipBoy_on_Tilix.png)
 
 ## Additions to Neofetch Config
 - This is done usinng the [prin](https://github.com/dylanaraps/neofetch/wiki/Customizing-Info#prin) option
