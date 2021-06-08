@@ -1,6 +1,9 @@
 # Neofetch Merlin Config
 
-My custom configuration file for neofetch using ascii art made by [Adithyan-KV](https://github.com/Adithyan-KV). My Terminal Emulator of choice is [Tilix](https://github.com/gnunn1/tilix) and therefore some of my customizations are tilix specific.
+- The following is my custom configuration file for [Neofetch](https://github.com/dylanaraps/neofetch) using ascii art made by [Adithyan-KV](https://github.com/Adithyan-KV) and several additional perameters using the 
+`prin` option in Neofetch. 
+
+- My Terminal Emulator of choice is [Tilix](https://github.com/gnunn1/tilix) and therefore some of my customizations are tilix specific.
 
 ## Contents
 
