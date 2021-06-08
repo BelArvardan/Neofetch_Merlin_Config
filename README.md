@@ -8,9 +8,8 @@
 ## Contents
 
 - [Preview](#preview)
-- [Additions to Neofetch Config](#additions-to-neofetch-config)
 - [Additional Software Required](#additional-software-required)
-- [How to use](#how-to-use)
+- [Additions to Neofetch Config](#additions-to-neofetch-config)
 - [Sources](#sources)
 - [Thoughts](#thoughts)
 
@@ -20,34 +19,6 @@
 ### PipBoy Acsii Preview
 ![ASCII-pipboy-preview](/Preview/PipBoy_on_Tilix.png)
 
-## Additions to Neofetch Config
-- This is done usinng the [prin](https://github.com/dylanaraps/neofetch/wiki/Customizing-Info#prin) option
-
-### Lutris Games
-`prin " Lutris Games" "$(ls /home/$USER/.local/share/lutris/banners | wc -l)"`
-- Uses the `ls` and `wc` commands to show how many games I have installed on [Lutris](https://github.com/lutris/lutris)
-
-### Sound Server
-`prin "墳Sound Server" "$(pactl info | rg 'Server Name' | cut -c13-)"`
-- I have started using Pipewire as a sound Server and since its still new and part incorporated into my distro by default it is important to make sure the system is still using it.
-- I use `pactl info` with `grep` or `rg`(ripgrep) to make sure pipewire is working properly.
-
-### Alternate method to display terminal font on Tilix
-`prin " Terminal Font" "$(dconf dump /com/gexperts/Tilix/profiles/[Profile String]/ | rg "font" --max-count=1 | cut -c6-)"`
-- For whatever reason the `term_font` function doesn't work on tilix. I'm not sure why.
-- See the [Neofetch Wiki](https://github.com/dylanaraps/neofetch/wiki/Terminal-and-Terminal-Font-detection) for more info about this.
-- As a result I am using `dconf dump` with `grep` or `rg`(ripgrep) to find this infomation.
-- this requires you to find the string assosiated with your Tilix profile using the command 
-`dconf dump /com/gexperts/Tilix/profiles`
-
-![Find-tilix-profile-string](/Preview/Tilix_Profile_String.png)
-
-- This implementation is problematic and may not alsways work. However it has worked for me so far.
-
-### ProtonVpn Server
-`prin "旅 ProtonVPN Server" "$(protonvpn-cli s | rg "Server" --max-count=1 | cut -c11-)"`
-- This simply displays which ProtonVPN Server I am connected to too.
-
 ## Additional Software Required
 
 - [protonvpn-cli](https://protonvpn.com/support/linux-ubuntu-vpn-setup)
@@ -56,7 +27,7 @@
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 
 ### Installing Additional software/dependancies.
-In Ubuntu can can install these packages with the following commands:
+In Ubuntu and debian these packages can be installed easily with the following commands:
 
 #### protonvpn-cli
 ```
@@ -89,6 +60,42 @@ cd nerd-fonts
 ./install.sh CodeNewRoman
 ./install.sh ProggyClean
 ```
+
+## Additions to Neofetch Config
+- This is done usinng the [prin](https://github.com/dylanaraps/neofetch/wiki/Customizing-Info#prin) option
+
+### Lutris Games
+`prin " Lutris Games" "$(ls /home/$USER/.local/share/lutris/banners | wc -l)"`
+- Uses the `ls` and `wc` commands to show how many games I have installed on [Lutris](https://github.com/lutris/lutris)
+
+### Sound Server
+`prin "墳Sound Server" "$(pactl info | rg 'Server Name' | cut -c13-)"`
+- I have started using Pipewire as a sound Server and since its still new and part incorporated into my distro by default it is important to make sure the system is still using it.
+- I use `pactl info` with `grep` or `rg`(ripgrep) to make sure pipewire is working properly.
+
+### Alternate method to display terminal font on Tilix
+`prin " Terminal Font" "$(dconf dump /com/gexperts/Tilix/profiles/[Profile String]/ | rg "font" --max-count=1 | cut -c6-)"`
+- For whatever reason the `term_font` function doesn't work on tilix. I'm not sure why.
+- See the [Neofetch Wiki](https://github.com/dylanaraps/neofetch/wiki/Terminal-and-Terminal-Font-detection) for more info about this.
+- As a result I am using `dconf dump` with `grep` or `rg`(ripgrep) to find this infomation.
+- this requires you to find the string assosiated with your Tilix profile using the command 
+`dconf dump /com/gexperts/Tilix/profiles`
+
+![Find-tilix-profile-string](/Preview/Tilix_Profile_String.png)
+
+- This implementation is problematic and may not alsways work. However it has worked for me so far.
+
+### ProtonVpn Server
+`prin "旅 ProtonVPN Server" "$(protonvpn-cli s | rg "Server" --max-count=1 | cut -c11-)"`
+- This simply displays which ProtonVPN Server I am connected to too.
+
+### Added glyphs to all function labels
+- This is accomplished by installing any [nerd font](https://github.com/ryanoasis/nerd-fonts).
+- Set installed nerd-font as the font used by your terminal emulator
+- In Tilix this can be done by opening Preferences, Selecting your profile. checking the box for "Custom Font" and selecting whichever Nerd Font that's installed.
+- In other Terminal Emulators you may have to edit a config file manually.
+    - In kitty open `/home/$USER/.config/kitty/kitty.conf` in your editor of choice.
+    - In Alacritty the config file is located in `/home/$USER/.config/alacritty/alacritty.yml`
 
 ## How to use
 
