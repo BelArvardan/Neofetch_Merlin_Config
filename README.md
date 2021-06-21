@@ -22,9 +22,10 @@
 ## Additional Software Required
 
 - [protonvpn-cli](https://protonvpn.com/support/linux-ubuntu-vpn-setup)
-- [Lutris](https://github.com/lutris/lutris)
+- [lutris](https://github.com/lutris/lutris)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
+- [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+- [efibootmgr](https://github.com/rhboot/efibootmgr)
 
 ### Installing Additional software/dependancies.
 In Ubuntu and debian these packages can be installed easily with the following commands:
@@ -46,7 +47,12 @@ sudo apt-get install lutris
 sudo apt-get update
 sudo apt-get install ripgrep
 ```
-#### Nerd nerd-fonts
+#### EFI Boot Manager 
+```
+sudo apt-get update
+sudo apt-get install efibootmgr
+```
+#### Nerd Fonts
 ```
 git clone https://github.com/ryanoasis/nerd-fonts.git
 cd nerd-fonts
@@ -63,6 +69,10 @@ cd nerd-fonts
 
 ## Additions to Neofetch Config
 - This is done usinng the [prin](https://github.com/dylanaraps/neofetch/wiki/Customizing-Info#prin) option
+
+### Bootloader
+`prin "異Bootloader" "$(efibootmgr | rg "Boot`efibootmgr | rg "BootOrder" | cut -c12-15`" | cut -c11-)"``
+- uses [efibootmgr](https://github.com/rhboot/efibootmgr) and grep or ripgrep to find the default 1st bootloader then grep again using that number string to determine the default bootloaders label.
 
 ### Lutris Games
 `prin " Lutris Games" "$(ls /home/$USER/.local/share/lutris/banners | wc -l)"`
