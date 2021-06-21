@@ -71,7 +71,9 @@ cd nerd-fonts
 - This is done usinng the [prin](https://github.com/dylanaraps/neofetch/wiki/Customizing-Info#prin) option
 
 ### Bootloader
-`prin "異Bootloader" "$(efibootmgr | rg "Boot`efibootmgr | rg "BootOrder" | cut -c12-15`" | cut -c11-)"``
+```
+prin "異Bootloader" "$(efibootmgr | rg "Boot`efibootmgr | rg "BootOrder" | cut -c12-15`" | cut -c11-)"
+```
 - uses [efibootmgr](https://github.com/rhboot/efibootmgr) and grep or ripgrep to find the default 1st bootloader then grep again using that number string to determine the default bootloaders label.
 
 ### Lutris Games
